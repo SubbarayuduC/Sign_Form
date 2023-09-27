@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'log_In.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -7,7 +9,7 @@ void main() {
 class MyApp extends StatelessWidget {
 
   final formKey = GlobalKey<FormState>();
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -36,7 +38,8 @@ class MyApp extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: TextFormField(
                       keyboardType: TextInputType.text,
-                      decoration: InputDecoration(hintText: 'First Name',
+                      decoration: InputDecoration(
+                        hintText: 'First Name',
                         border: OutlineInputBorder(),
                       ),
                       onChanged: (String value) {
@@ -109,7 +112,7 @@ class MyApp extends StatelessWidget {
             Padding(padding: EdgeInsets.symmetric(vertical: 20,horizontal: 20),
               child: TextFormField(
                 keyboardType: TextInputType.text,
-                decoration: InputDecoration(hintText: 'Gender',
+                decoration: InputDecoration(hintText: 'Email Address',
                   border: OutlineInputBorder(),
                 ),
                 onChanged: (String value) {
@@ -117,7 +120,7 @@ class MyApp extends StatelessWidget {
                 },
                 validator: (value) {
                   return value!.isEmpty
-                      ? 'Please Enter Your Gender.'
+                      ? 'Please Enter Your Email Id.'
                       : null;
                 },
               ),
@@ -162,6 +165,7 @@ class MyApp extends StatelessWidget {
             Padding(padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
               child: ElevatedButton(
                 onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Log_in()));
                   if (formKey.currentState!.validate()) {
 
                   }
